@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '-e(!i)kv*80pl_8*d6h^fk5g6y^j54
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cryptochartz.herokuapp.com']
 
 
 # Application definition
