@@ -1,0 +1,44 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+  <div class="row">
+    <div class="col">
+      <h1 class=" mt-4 headerCharts text-center text-muted">ETH</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <canvas class="" id="myChart" width="600" height="450"></canvas>
+      <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["USD", "EUR"],
+              datasets: [{
+                  label: 'Ethereum Price',
+                  data: [{{ eth_data.USD }}, {{ eth_data.EUR }}],
+                  backgroundColor: [
+                      'rgba(0, 0, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(0,0,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  responsive: false,
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                        }
+                      }]
+                    }
+                  }
+                });
+      </script>
+{% endblock content %}
